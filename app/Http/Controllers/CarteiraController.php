@@ -8,6 +8,7 @@ use App\Models\carteiraModel as Carteira;
 
 class CarteiraController extends Controller
 {
+    protected $table = 'carteira';
 
     public function index()
     {
