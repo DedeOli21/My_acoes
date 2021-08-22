@@ -3,11 +3,18 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CarteiraController;
+use App\Http\Controllers\PainelController;
+
 
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+// Registrar usuarios novos
+Route::post('login', [PainelController::class, 'login']);
+Route::post('registrar', [PainelController::class, 'registrar']);
+
 
 
 // List acoes
