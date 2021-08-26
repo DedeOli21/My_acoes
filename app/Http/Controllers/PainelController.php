@@ -26,18 +26,10 @@ class PainelController extends Controller
         }
 
         $user = $request->user();
-        $tokenResult = $user->createToken('Personal Acess Token');
-        $token = $tokenResult->token;
-        $token->expires_at = Carbon::now()->addWeeks(1);
-        $token->save();
 
-        return response()->json(['data' => [
-            'user'          => Auth::user(),
-            'acess_token'   => $tokenResult->acessToken,
-            'token_type'    => 'Bearer',
-            'expires_at'    => Carbon::parse($tokenResult->token->expires_at)->toDateTimeString()
 
-        ]], 200);
+        return response()->json(['Message' => 'Login bem-sucedido ' . $user->name, $user], 200);
+
     }
 
     public function registrar(Request $request)
@@ -49,6 +41,7 @@ class PainelController extends Controller
         ]);
 
         $data = $request->all();
+
         $check = $this->create($data);
 
         return response()->json(['message' => 'Usuario registrado'], 200);
