@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Resources\Carteira as CarteiraResource;
 use App\Models\carteiraModel as Carteira;
+use Illuminate\Support\Facades\DB;
 
 class CarteiraController extends Controller
 {
@@ -12,8 +13,23 @@ class CarteiraController extends Controller
 
     public function index()
     {
-        $acoes = Carteira::paginate(15);
-        return CarteiraResource::collection($acoes);
+        $carteira = DB::select('select * from carteira ');
+        $saldo = DB::table('carteira')->sum('saldo');
+
+
+        $dados = array(
+            'carteira' => $carteira,
+            'saldo'    => $saldo
+
+        );
+
+//        dd($dados);
+
+
+
+
+
+        return $dados;
     }
 
     public function create()

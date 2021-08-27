@@ -19,19 +19,19 @@ Route::post('registrar', [PainelController::class, 'registrar']);
 
 
 // List acoes
-//Route::get('acoes', [CarteiraController::class, 'index']);
-//
-//// List single acoes
-//Route::get('acao/{id}', [CarteiraController::class, 'show']);
-//
-//// adicionar new acao
-//Route::post('acao', [CarteiraController::class, 'store']);
-//
-//// Update acao
-//Route::put('acao/{id}', [CarteiraController::class, 'update']);
-//
-//// Delete acao
-//Route::delete('acao/{id}', [CarteiraController::class,'destroy']);
+Route::get('acoes', [CarteiraController::class, 'index']);
+
+// List single acoes
+Route::get('acao/{id}', [CarteiraController::class, 'show']);
+
+// adicionar new acao
+Route::post('acao', [CarteiraController::class, 'store']);
+
+// Update acao
+Route::put('acao/{id}', [CarteiraController::class, 'update']);
+
+// Delete acao
+Route::delete('acao/{id}', [CarteiraController::class,'destroy']);
 
 
 //-------- Extrato --------------------
