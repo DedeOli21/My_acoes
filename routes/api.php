@@ -25,7 +25,7 @@ Route::get('acoes', [CarteiraController::class, 'index']);
 Route::get('acao/{id}', [CarteiraController::class, 'show']);
 
 // adicionar new acao
-Route::post('acao', [CarteiraController::class, 'store']);
+Route::post('acao', [CarteiraController::class, 'investir']);
 
 // Update acao
 Route::put('acao/{id}', [CarteiraController::class, 'update']);

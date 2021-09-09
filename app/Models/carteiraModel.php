@@ -8,5 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class carteiraModel extends Model
 {
     protected $table = 'carteira';
+    protected $fillable = ['saldo'];
     use HasFactory;
 }

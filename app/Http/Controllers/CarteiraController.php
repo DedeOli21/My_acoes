@@ -25,16 +25,52 @@ class CarteiraController extends Controller
 
 //        dd($dados);
 
-
-
-
-
         return $dados;
     }
 
-    public function create()
-    {
-        //
+    public function investir(Request $request){
+        $saldo  = DB::table('carteira')->sum('saldo');
+        $deposito = $request->input('valor');
+        $option = $request->input('opcao');
+
+
+
+        if($option == 1){
+            $dados  = Carteira::find(1);
+            $dados->saldo = $saldo + $deposito;
+            $dados->updated_at = time();
+
+            if($dados->save()) {
+                return response("Deposito realizado com sucesso no valor de " . $deposito, 200);
+            };
+
+
+        }
+
+        else if ($option == 2){
+
+            $dados  = Carteira::find(1);
+            $dados->saldo = $saldo + $deposito;
+            $dados->updated_at = time();
+
+            if($dados->save()) {
+                return response('Lucro reinvestido com sucesso no valor de ' . $deposito, 200);
+            };
+        }
+
+        else if ($option == 3){
+            $dados  = Carteira::find(1);
+            $dados->saldo = $saldo - $deposito;
+            $dados->updated_at = time();
+
+
+            if($dados->save()) {
+                return response("Saque realizado com sucesso no valor de " . $deposito, 200);
+            };
+        }
+
+
+
     }
 
 

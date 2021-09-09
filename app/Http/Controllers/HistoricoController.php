@@ -18,9 +18,13 @@ class HistoricoController extends Controller
         $extrato = DB::select('select * from historico ');
 
         return $extrato;
-//        $extrato = HistoricoModel::paginate(15);
-//        return HistoricoResource::collection($extrato);
+
     }
+
+
+
+
+
 
     /**
      * Show the form for creating a new resource.
