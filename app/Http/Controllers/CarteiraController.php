@@ -15,11 +15,13 @@ class CarteiraController extends Controller
     {
         $carteira = DB::select('select * from carteira ');
         $saldo = DB::table('carteira')->sum('saldo');
+        $atualizacao = DB::table('carteira')->select('updated_at')->get();
 
 
         $dados = array(
             'carteira' => $carteira,
-            'saldo'    => $saldo
+            'saldo'    => $saldo,
+            'atualizacao' => $atualizacao
 
         );
 
@@ -32,8 +34,6 @@ class CarteiraController extends Controller
         $saldo  = DB::table('carteira')->sum('saldo');
         $deposito = $request->input('valor');
         $option = $request->input('opcao');
-
-
 
         if($option == 1){
             $dados  = Carteira::find(1);
@@ -70,7 +70,7 @@ class CarteiraController extends Controller
         }
 
 
-
+        return response("Sucesso", 200);
     }
 
 

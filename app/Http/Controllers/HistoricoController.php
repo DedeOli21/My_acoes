@@ -6,6 +6,8 @@ use App\Http\Resources\HistoricoResource as HistoricoResource;
 use App\Models\HistoricoModel as HistoricoModel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+
+
 class HistoricoController extends Controller
 {
     /**

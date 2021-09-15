@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CarteiraController;
 use App\Http\Controllers\PainelController;
 use App\Http\Controllers\HistoricoController;
+use App\Http\Controllers\RentabilidadeController;
 
 
 
@@ -50,3 +51,7 @@ Route::put('historico/{id}', [HistoricoController::class, 'update']);
 
 // Delete acao
 Route::delete('historico/{id}', [HistoricoController::class,'destroy']);
+
+
+// Rentabilidade
+Route::get('rentabilidade', [RentabilidadeController::class, 'index']);
