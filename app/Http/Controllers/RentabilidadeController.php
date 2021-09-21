@@ -25,13 +25,25 @@ class RentabilidadeController extends Controller
 
         $mensal = $saldo * 0.3;
 
+        $dolar = file_get_contents("https://economia.awesomeapi.com.br/last/USD-BRL");
+
+        $bitcoin = file_get_contents("https://economia.awesomeapi.com.br/last/BTC-BRL");
+
+        $etherum = file_get_contents("https://economia.awesomeapi.com.br/last/ETH-BRL");
+
+
         $dados = [
-            'diario'  =>  number_format($diario, 2, '.', ','),
-            'semanal' =>  number_format($semanal, 2,'.', ','),
-            'mensal'  =>  number_format($mensal, 2,'.', ',')
+            'diario'    =>  number_format($diario, 2, '.', ','),
+            'semanal'   =>  number_format($semanal, 2,'.', ','),
+            'mensal'    =>  number_format($mensal, 2,'.', ','),
+            'dolar'     =>  $dolar,
+            'bitcoin'   =>  $bitcoin,
+            'etherum'   =>  $etherum
         ];
 
         return response($dados, 200);
+
+
 
     }
 
